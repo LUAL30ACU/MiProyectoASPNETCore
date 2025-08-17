@@ -1,0 +1,23 @@
+# ASP.NET Core
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.cache
+*.pdb
+*.dll
+*.exe
+
+# NuGet Packages
+packages/
+*.nupkg
+
+# Entorno de desarrollo
+appsettings.Development.json
+.env
+
+# Otros
+*.log
+Thumbs.db
+.DS_Store
