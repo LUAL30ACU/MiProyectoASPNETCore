@@ -1,0 +1,9 @@
+@model CineManager.Models.Entities.Sucursal
+@{ ViewData["Title"] = "Eliminar Sucursal"; }
+<h1>Eliminar Sucursal</h1>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>¿Seguro?</p>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

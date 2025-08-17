@@ -1,0 +1,8 @@
+@model CineManager.Models.Entities.Funcion
+@{ ViewData["Title"] = "Editar Funcion"; }
+<h1>Editar Funcion</h1>
+<form asp-action="Edit" method="post">
+<input type="hidden" asp-for="Id" />
+<div class="form-group"><label asp-for="SucursalId"></label><input asp-for="SucursalId" class="form-control" /></div><div class="form-group"><label asp-for="SalaId"></label><input asp-for="SalaId" class="form-control" /></div><div class="form-group"><label asp-for="PeliculaId"></label><input asp-for="PeliculaId" class="form-control" /></div><div class="form-group"><label asp-for="Horario"></label><input asp-for="Horario" class="form-control" /></div>
+<button type="submit" class="btn btn-primary">Guardar</button>
+</form>

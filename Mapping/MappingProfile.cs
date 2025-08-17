@@ -1,0 +1,2 @@
+using AutoMapper; using CineManager.Dtos; using CineManager.Models.Entities;
+namespace CineManager.Mapping; public class MappingProfile : Profile { public MappingProfile() { CreateMap<Sucursal, SucursalDto>().ReverseMap(); CreateMap<Categoria, CategoriaDto>().ReverseMap(); CreateMap<Pelicula, PeliculaDto>().ReverseMap(); CreateMap<Usuario, UsuarioDto>().ReverseMap(); CreateMap<Sala, SalaDto>().ReverseMap(); CreateMap<Funcion, FuncionDto>().ReverseMap(); } }

@@ -1,0 +1,1 @@
+Para generar migraciones EF: dotnet ef migrations add InitialCreate && dotnet ef database update. Incluido InitialCreate.sql y cine.db seed.

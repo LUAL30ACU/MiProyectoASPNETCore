@@ -1,0 +1,7 @@
+@model IEnumerable<CineManager.Models.Entities.Funcion>
+@{ ViewData["Title"] = "Funcion"; }
+<h1>Funcion</h1>
+<p><a asp-action="Create">Crear</a></p>
+<table class="table"><thead><tr><th>Id</th><th>SucursalId</th><th>SalaId</th><th>PeliculaId</th><th>Horario</th><th></th></tr></thead><tbody>
+@foreach(var it in Model) { <tr><td>@it.Id</td><td>@it.SucursalId</td><td>@it.SalaId</td><td>@it.PeliculaId</td><td>@it.Horario</td><td><a asp-action="Edit" asp-route-id="@it.Id">Editar</a> | <a asp-action="Delete" asp-route-id="@it.Id">Eliminar</a></td></tr> }
+</tbody></table>

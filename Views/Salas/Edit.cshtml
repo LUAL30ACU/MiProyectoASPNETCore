@@ -1,0 +1,8 @@
+@model CineManager.Models.Entities.Sala
+@{ ViewData["Title"] = "Editar Sala"; }
+<h1>Editar Sala</h1>
+<form asp-action="Edit" method="post">
+<input type="hidden" asp-for="Id" />
+<div class="form-group"><label asp-for="NumeroSala"></label><input asp-for="NumeroSala" class="form-control" /></div><div class="form-group"><label asp-for="Capacidad"></label><input asp-for="Capacidad" class="form-control" /></div><div class="form-group"><label asp-for="Clase"></label><input asp-for="Clase" class="form-control" /></div><div class="form-group"><label asp-for="SucursalId"></label><input asp-for="SucursalId" class="form-control" /></div>
+<button type="submit" class="btn btn-primary">Guardar</button>
+</form>

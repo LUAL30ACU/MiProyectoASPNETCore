@@ -1,0 +1,1 @@
+namespace CineManager.Dtos; public class SalaDto { public int Id { get; set; } public int NumeroSala { get; set; } public int Capacidad { get; set; } public string Clase { get; set; } = string.Empty; public int SucursalId { get; set; } }

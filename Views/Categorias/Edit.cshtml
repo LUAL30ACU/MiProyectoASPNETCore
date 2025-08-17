@@ -1,0 +1,8 @@
+@model CineManager.Models.Entities.Categoria
+@{ ViewData["Title"] = "Editar Categoria"; }
+<h1>Editar Categoria</h1>
+<form asp-action="Edit" method="post">
+<input type="hidden" asp-for="Id" />
+<div class="form-group"><label asp-for="Nombre"></label><input asp-for="Nombre" class="form-control" /></div>
+<button type="submit" class="btn btn-primary">Guardar</button>
+</form>

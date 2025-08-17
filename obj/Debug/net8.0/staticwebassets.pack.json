@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\images\\fondo.jpg",
+      "PackagePath": "staticwebassets\\images\\fondo.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CineManager.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CineManager.props",
+      "PackagePath": "build\\CineManager.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CineManager.props",
+      "PackagePath": "buildMultiTargeting\\CineManager.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CineManager.props",
+      "PackagePath": "buildTransitive\\CineManager.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

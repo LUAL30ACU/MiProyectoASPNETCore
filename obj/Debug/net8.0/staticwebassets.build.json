@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "iZPSWzQfXxP2AOipaXJ2sUoR3zv2PFWC6+cnywmAILc=",
+  "Source": "CineManager",
+  "BasePath": "_content/CineManager",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CineManager\\wwwroot",
+      "Source": "CineManager",
+      "ContentRoot": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\",
+      "BasePath": "_content/CineManager",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\images\\fondo.jpg",
+      "SourceId": "CineManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\",
+      "BasePath": "_content/CineManager",
+      "RelativePath": "images/fondo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fondo.jpg"
+    }
+  ]
+}

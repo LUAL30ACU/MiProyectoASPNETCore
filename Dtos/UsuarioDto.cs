@@ -1,0 +1,1 @@
+namespace CineManager.Dtos; public class UsuarioDto { public int Id { get; set; } public string TipoDocumento { get; set; } = string.Empty; public string NumeroDocumento { get; set; } = string.Empty; public string Nombre { get; set; } = string.Empty; public string Apellido { get; set; } = string.Empty; public string Correo { get; set; } = string.Empty; }
