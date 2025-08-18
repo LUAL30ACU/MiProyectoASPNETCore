@@ -2,6 +2,23 @@
 @{ ViewData["Title"] = "Crear Sala"; }
 <h1>Crear Sala</h1>
 <form asp-action="Create" method="post">
-<div class="form-group"><label asp-for="NumeroSala"></label><input asp-for="NumeroSala" class="form-control" /></div><div class="form-group"><label asp-for="Capacidad"></label><input asp-for="Capacidad" class="form-control" /></div><div class="form-group"><label asp-for="Clase"></label><input asp-for="Clase" class="form-control" /></div><div class="form-group"><label asp-for="SucursalId"></label><input asp-for="SucursalId" class="form-control" /></div>
+<div class="form-group"><label asp-for="NumeroSala"></label>
+<input asp-for="NumeroSala" class="form-control" />
+</div>
+<div class="form-group"><label asp-for="Capacidad"></label>
+<input asp-for="Capacidad" class="form-control" />
+</div>
+<div class="form-group"><label asp-for="Clase"></label><input asp-for="Clase" class="form-control" />
+</div>
+<div class="form-group"><label asp-for="SucursalId"></label>
+ <label asp-for="SucursalId" class="control-label">Sucursal</label>
+        <select asp-for="SucursalId" class="form-control" asp-items="ViewBag.Sucursales">
+            <option value="">-- Seleccione una sucursal --</option>
+        </select>
+        <span asp-validation-for="SucursalId" class="text-danger"></span>
+    </div>
+
+
+</div>
 <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

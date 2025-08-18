@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CineManager\\CineManager.csproj": {}
+    "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\CineManager.csproj": {}
   },
   "projects": {
-    "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CineManager\\CineManager.csproj": {
+    "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\CineManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CineManager\\CineManager.csproj",
+        "projectUniqueName": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\CineManager.csproj",
         "projectName": "CineManager",
-        "projectPath": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CineManager\\CineManager.csproj",
+        "projectPath": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\CineManager.csproj",
         "packagesPath": "C:\\Users\\llumialz\\.nuget\\packages\\",
-        "outputPath": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CineManager\\obj\\",
+        "outputPath": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\llumialz\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -79,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
