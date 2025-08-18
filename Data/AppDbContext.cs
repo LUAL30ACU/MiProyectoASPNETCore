@@ -10,6 +10,13 @@ public class AppDbContext : DbContext {
     public DbSet<Funcion> Funciones { get; set; } = null!;
     public DbSet<Usuario> Usuarios { get; set; } = null!;
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
+        // Fluent API para la relación 1..N y la FK
+      //  modelBuilder.Entity<Sala>()
+      //      .HasOne(s => s.Sucursal)
+       //     .WithMany(su => su.Salas)
+       //     .HasForeignKey(s => s.SucursalId)
+       //     .OnDelete(DeleteBehavior.Restrict); // o Cascade, según tu negocio
         modelBuilder.Entity<Sucursal>().OwnsOne(s => s.Direccion);
         modelBuilder.Entity<Usuario>().OwnsOne(u => u.Direccion);
         modelBuilder.Entity<Sucursal>().HasIndex(s => s.Codigo).IsUnique();
