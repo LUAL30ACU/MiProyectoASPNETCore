@@ -2,6 +2,19 @@
 @{ ViewData["Title"] = "Pelicula"; }
 <h1>Pelicula</h1>
 <p><a asp-action="Create">Crear</a></p>
-<table class="table"><thead><tr><th>Id</th><th>Nombre</th><th>CategoriaId</th><th></th></tr></thead><tbody>
-@foreach(var it in Model) { <tr><td>@it.Id</td><td>@it.Nombre</td><td>@it.CategoriaId</td><td><a asp-action="Edit" asp-route-id="@it.Id">Editar</a> | <a asp-action="Delete" asp-route-id="@it.Id">Eliminar</a></td></tr> }
-</tbody></table>
+<table class="table"><thead><tr><th>Id</th><th>Nombre</th><th>Tipo de Categoria</th><th></th></tr></thead><tbody>
+        @foreach (var it in Model)
+        {
+            <tr>
+                <td>@it.Id</td>
+                <td>@it.Nombre</td>
+                <td>@it.Categoria?.Nombre</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@it.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@it.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

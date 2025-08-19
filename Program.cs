@@ -20,3 +20,7 @@ if (!app.Environment.IsDevelopment()) { app.UseExceptionHandler("/Home/Error"); 
 app.UseHttpsRedirection(); app.UseStaticFiles(); app.UseRouting(); app.UseAuthorization();
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 app.Run();
+// filepath: c:\CAPACITACION\PROGRAMACIONORIENTAOBJETOS\CineManager_Full\CineManager\Program.cs
+builder.Logging.AddDebug();
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
