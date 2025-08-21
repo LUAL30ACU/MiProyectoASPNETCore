@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CineManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebb4337933581ea59c8f6bb56249954e68411cd6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a34df7783364a899c02740ba2672f0efbf9e678")]
 [assembly: System.Reflection.AssemblyProductAttribute("CineManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CineManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
