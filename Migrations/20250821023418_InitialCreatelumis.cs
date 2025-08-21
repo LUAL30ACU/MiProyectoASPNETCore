@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CineManager.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCreatelumis : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,10 +53,10 @@ namespace CineManager.Migrations
                     Nombre = table.Column<string>(type: "TEXT", nullable: false),
                     Apellido = table.Column<string>(type: "TEXT", nullable: false),
                     Correo = table.Column<string>(type: "TEXT", nullable: false),
-                    Direccion_Departamento = table.Column<string>(type: "TEXT", nullable: false),
-                    Direccion_Provincia = table.Column<string>(type: "TEXT", nullable: false),
-                    Direccion_Distrito = table.Column<string>(type: "TEXT", nullable: false),
-                    Direccion_Direccion = table.Column<string>(type: "TEXT", nullable: false)
+                    Direccion = table.Column<string>(type: "TEXT", nullable: false),
+                    Departamento = table.Column<string>(type: "TEXT", nullable: false),
+                    Provincia = table.Column<string>(type: "TEXT", nullable: false),
+                    Distrito = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

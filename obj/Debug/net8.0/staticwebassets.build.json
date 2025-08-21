@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iZPSWzQfXxP2AOipaXJ2sUoR3zv2PFWC6+cnywmAILc=",
+  "Hash": "lSX+by0J277Q03sB8USAx2iCy+rRzM1GFzBgE8B3ik8=",
   "Source": "CineManager",
   "BasePath": "_content/CineManager",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CineManager\\wwwroot",
       "Source": "CineManager",
-      "ContentRoot": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\",
+      "ContentRoot": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CINEMANAGER\\wwwroot\\",
       "BasePath": "_content/CineManager",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\images\\fondo.jpg",
+      "Identity": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CINEMANAGER\\wwwroot\\images\\fondo.jpg",
       "SourceId": "CineManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\cinemanager\\wwwroot\\",
+      "ContentRoot": "C:\\CAPACITACION\\PROGRAMACIONORIENTAOBJETOS\\CineManager_Full\\CINEMANAGER\\wwwroot\\",
       "BasePath": "_content/CineManager",
       "RelativePath": "images/fondo.jpg",
       "AssetKind": "All",

@@ -10,6 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ISucursalService, SucursalService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+
 builder.Services.AddScoped<IPeliculaService, PeliculaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ISalaService, SalaService>();
@@ -24,3 +25,10 @@ app.Run();
 builder.Logging.AddDebug();
 builder.Logging.AddConsole();
 builder.Logging.SetMinimumLevel(LogLevel.Debug);
+// ...existing code...
+
+// ...existing code...
+
+// ...existing code...
+// ...existing code...
+// ...existing code...

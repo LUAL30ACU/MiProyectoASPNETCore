@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CineManager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250818015904_UpdateSalaToUseNumeroSala")]
-    partial class UpdateSalaToUseNumeroSala
+    [Migration("20250821023418_InitialCreatelumis")]
+    partial class InitialCreatelumis
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -146,11 +146,27 @@ namespace CineManager.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Departamento")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Distrito")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NumeroDocumento")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Provincia")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -241,41 +257,6 @@ namespace CineManager.Migrations
 
                             b1.WithOwner()
                                 .HasForeignKey("SucursalId");
-                        });
-
-                    b.Navigation("Direccion")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CineManager.Models.Entities.Usuario", b =>
-                {
-                    b.OwnsOne("CineManager.Models.ValueObjects.Address", "Direccion", b1 =>
-                        {
-                            b1.Property<int>("UsuarioId")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("Departamento")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("Direccion")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("Distrito")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("Provincia")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.HasKey("UsuarioId");
-
-                            b1.ToTable("Usuarios");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UsuarioId");
                         });
 
                     b.Navigation("Direccion")
