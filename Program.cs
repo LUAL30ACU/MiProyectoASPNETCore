@@ -15,6 +15,9 @@ builder.Services.AddScoped<IPeliculaService, PeliculaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ISalaService, SalaService>();
 builder.Services.AddScoped<IFuncionService, FuncionService>();
+// ...existing code...
+builder.Services.AddScoped<IUbicacionService, UbicacionService>();
+// ...existing code...
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 var app = builder.Build();
 if (!app.Environment.IsDevelopment()) { app.UseExceptionHandler("/Home/Error"); app.UseHsts(); }

@@ -9,16 +9,18 @@ public class UsuariosController : Controller
     //private readonly IUsuarioService _service;
     //public UsuariosController(IUsuarioService service) { _service = service; }
     private readonly IUsuarioService _service;
-
+    private readonly IUbicacionService _ubicacionService;
     private readonly ILogger<UsuariosController> _logger;
 
     public UsuariosController(
         IUsuarioService service, 
-       
+        IUbicacionService ubicacionService,
+
         ILogger<UsuariosController> logger)
     {
             _service = service;
-           
+            _ubicacionService = ubicacionService ?? throw new ArgumentNullException(nameof(ubicacionService));
+
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
     }
@@ -59,12 +61,58 @@ public class UsuariosController : Controller
     //[HttpPost] public async Task<IActionResult> Create(Usuario model) { if(!ModelState.IsValid) return View(model); await _service.CreateAsync(model); return RedirectToAction(nameof(Index)); }
   
     
-   
+    public async Task<IActionResult> Edit(int id)
+    {
+        try
+        {
+            var usuario = await _service.GetByIdAsync(id);
+            if (usuario == null)
+            {
+                _logger.LogWarning("Usuario no encontrado: {Id}", id);
+                return NotFound();
+            }
+
+            return View(usuario);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error al obtener usuario para editar: {Id}", id);
+            TempData["Error"] = "Error al cargar el usuario";
+            return RedirectToAction(nameof(Index));
+        }
+    }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, Usuario model)
+    {
+        if (id != model.Id)
+        {
+            return BadRequest();
+        }
+
+        try
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            await _service.UpdateAsync(model);
+            TempData["Success"] = "Usuario actualizado correctamente";
+            return RedirectToAction(nameof(Index));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error al actualizar usuario: {Id}", id);
+            ModelState.AddModelError("", "Error al actualizar el usuario");
+            return View(model);
+        }
+    }
+
+
+    //[HttpPost]
    
-    public async Task<IActionResult> Edit(int id) { var e = await _service.GetByIdAsync(id); if (e == null) return NotFound(); return View(e); }
-    [HttpPost] public async Task<IActionResult> Edit(int id, Usuario model) { if(id!=model.Id) return BadRequest(); if(!ModelState.IsValid) return View(model); await _service.UpdateAsync(model); return RedirectToAction(nameof(Index)); }
+   // public async Task<IActionResult> Edit(int id) { var e = await _service.GetByIdAsync(id); if (e == null) return NotFound(); return View(e); }
+   // [HttpPost] public async Task<IActionResult> Edit(int id, Usuario model) { if(id!=model.Id) return BadRequest(); if(!ModelState.IsValid) return View(model); await _service.UpdateAsync(model); return RedirectToAction(nameof(Index)); }
     public async Task<IActionResult> Delete(int id) { var e = await _service.GetByIdAsync(id); if(e==null) return NotFound(); return View(e); }
     [HttpPost, ActionName("Delete")] public async Task<IActionResult> DeleteConfirmed(int id) { await _service.DeleteAsync(id); return RedirectToAction(nameof(Index)); }
 }

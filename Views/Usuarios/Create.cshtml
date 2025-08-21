@@ -1,18 +1,153 @@
+
 @model CineManager.Models.Entities.Usuario
-@{ ViewData["Title"] = "Crear Usuario"; }
-<h1>Crear Usuario</h1>
-<form asp-action="Create" method="post">
-<div class="form-group"><label asp-for="TipoDocumento"></label><input asp-for="TipoDocumento" class="form-control" /></div><div class="form-group"><label asp-for="NumeroDocumento"></label><input asp-for="NumeroDocumento" class="form-control" /></div><div class="form-group"><label asp-for="Nombre"></label><input asp-for="Nombre" class="form-control" /></div><div class="form-group"><label asp-for="Apellido"></label><input asp-for="Apellido" class="form-control" /></div><div class="form-group"><label asp-for="Correo"></label><input asp-for="Correo" class="form-control" /><label asp-for="Direccion"></label><input asp-for="Direccion" class="form-control" /></div>
-
-
-
-
-
-
-
-
-
-
+@{ 
+    ViewData["Title"] = "Crear Usuario"; 
 }
-<button type="submit" class="btn btn-primary">Guardar</button>
+
+<h1>Crear Usuario</h1>
+
+<form asp-action="Create" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label asp-for="TipoDocumento"></label>
+                <input asp-for="TipoDocumento" class="form-control" />
+                <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="NumeroDocumento"></label>
+                <input asp-for="NumeroDocumento" class="form-control" />
+                <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Apellido"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label asp-for="Correo"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Direccion"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DepartamentoId">Departamento</label>
+                <select asp-for="DepartamentoId" id="departamento" class="form-control">
+                    <option value="">Seleccione un departamento...</option>
+                </select>
+                <span asp-validation-for="DepartamentoId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ProvinciaId">Provincia</label>
+                <select asp-for="ProvinciaId" id="provincia" class="form-control" disabled>
+                    <option value="">Seleccione una provincia...</option>
+                </select>
+                <span asp-validation-for="ProvinciaId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DistritoId">Distrito</label>
+                <select asp-for="DistritoId" id="distrito" class="form-control" disabled>
+                    <option value="">Seleccione un distrito...</option>
+                </select>
+                <span asp-validation-for="DistritoId" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </div>
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@4.0.0/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function cargarDepartamentos() {
+                $.get('/api/ubicacion/departamentos')
+                    .done(function(data) {
+                        $('#departamento').empty()
+                            .append('<option value="">Seleccione un departamento...</option>')
+                            .append(data.map(item => 
+                                `<option value="${item.id}">${item.nombre}</option>`
+                            ));
+                    })
+                    .fail(function() {
+                        toastr.error('Error al cargar departamentos');
+                    });
+            }
+
+            $('#departamento').change(function() {
+                const departamentoId = $(this).val();
+                const $provincia = $('#provincia');
+                const $distrito = $('#distrito');
+
+                $provincia.prop('disabled', !departamentoId)
+                    .empty()
+                    .append('<option value="">Seleccione una provincia...</option>');
+                
+                $distrito.prop('disabled', true)
+                    .empty()
+                    .append('<option value="">Seleccione un distrito...</option>');
+
+                if (departamentoId) {
+                    $.get(`/api/ubicacion/provincias/${departamentoId}`)
+                        .done(function(data) {
+                            data.forEach(function(item) {
+                                $provincia.append(`<option value="${item.id}">${item.nombre}</option>`);
+                            });
+                        })
+                        .fail(function() {
+                            toastr.error('Error al cargar provincias');
+                        });
+                }
+            });
+
+            $('#provincia').change(function() {
+                const provinciaId = $(this).val();
+                const $distrito = $('#distrito');
+
+                $distrito.prop('disabled', !provinciaId)
+                    .empty()
+                    .append('<option value="">Seleccione un distrito...</option>');
+
+                if (provinciaId) {
+                    $.get(`/api/ubicacion/distritos/${provinciaId}`)
+                        .done(function(data) {
+                            data.forEach(function(item) {
+                                $distrito.append(`<option value="${item.id}">${item.nombre}</option>`);
+                            });
+                        })
+                        .fail(function() {
+                            toastr.error('Error al cargar distritos');
+                        });
+                }
+            });
+
+            cargarDepartamentos();
+        });
+    </script>
+}

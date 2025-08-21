@@ -11,23 +11,41 @@ public class AppDbContext : DbContext {
     public DbSet<Categoria> Categorias { get; set; } = null!;
     public DbSet<Funcion> Funciones { get; set; } = null!;
     public DbSet<Usuario> Usuarios { get; set; } = null!;
+     public DbSet<Departamento> Departamentos { get; set; } = null!;
+    public DbSet<Provincia> Provincias { get; set; } = null!;
+    public DbSet<Distrito> Distritos { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
+  {
 
-        // Fluent API para la relación 1..N y la FK
-        //  modelBuilder.Entity<Sala>()
-        //      .HasOne(s => s.Sucursal)
-        //     .WithMany(su => su.Salas)
-        //     .HasForeignKey(s => s.SucursalId)
-        //     .OnDelete(DeleteBehavior.Restrict); // o Cascade, según tu negocio
-        modelBuilder.Entity<Sucursal>().OwnsOne(s => s.Direccion);
-      //  modelBuilder.Entity<Usuario>().OwnsOne(u => u.Direccion);
-        modelBuilder.Entity<Sucursal>().HasIndex(s => s.Codigo).IsUnique();
-        modelBuilder.Entity<Sala>().HasOne(s => s.Sucursal).WithMany(su => su.Salas).HasForeignKey(s => s.SucursalId);
-        modelBuilder.Entity<Funcion>().HasOne(f => f.Sucursal).WithMany(su => su.Funciones).HasForeignKey(f => f.SucursalId);
-        modelBuilder.Entity<Funcion>().HasOne(f => f.Sala).WithMany(sa => sa.Funciones).HasForeignKey(f => f.SalaId).OnDelete(DeleteBehavior.Restrict);
-        modelBuilder.Entity<Funcion>().HasOne(f => f.Pelicula).WithMany(p => p.Funciones).HasForeignKey(f => f.PeliculaId);
-    
+    // Fluent API para la relación 1..N y la FK
+    //  modelBuilder.Entity<Sala>()
+    //      .HasOne(s => s.Sucursal)
+    //     .WithMany(su => su.Salas)
+    //     .HasForeignKey(s => s.SucursalId)
+    //     .OnDelete(DeleteBehavior.Restrict); // o Cascade, según tu negocio
+    modelBuilder.Entity<Sucursal>().OwnsOne(s => s.Direccion);
+    //  modelBuilder.Entity<Usuario>().OwnsOne(u => u.Direccion);
+    modelBuilder.Entity<Sucursal>().HasIndex(s => s.Codigo).IsUnique();
+    modelBuilder.Entity<Sala>().HasOne(s => s.Sucursal).WithMany(su => su.Salas).HasForeignKey(s => s.SucursalId);
+    modelBuilder.Entity<Funcion>().HasOne(f => f.Sucursal).WithMany(su => su.Funciones).HasForeignKey(f => f.SucursalId);
+    modelBuilder.Entity<Funcion>().HasOne(f => f.Sala).WithMany(sa => sa.Funciones).HasForeignKey(f => f.SalaId).OnDelete(DeleteBehavior.Restrict);
+    modelBuilder.Entity<Funcion>().HasOne(f => f.Pelicula).WithMany(p => p.Funciones).HasForeignKey(f => f.PeliculaId);
+  modelBuilder.Entity<Usuario>()
+            .HasOne(u => u.Departamento)
+            .WithMany()
+            .HasForeignKey(u => u.DepartamentoId);
 
-    }
+        modelBuilder.Entity<Usuario>()
+            .HasOne(u => u.Provincia)
+            .WithMany()
+            .HasForeignKey(u => u.ProvinciaId);
+
+        modelBuilder.Entity<Usuario>()
+            .HasOne(u => u.Distrito)
+            .WithMany()
+            .HasForeignKey(u => u.DistritoId);
+
+
+  }
 }
